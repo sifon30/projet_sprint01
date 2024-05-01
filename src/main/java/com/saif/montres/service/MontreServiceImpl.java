@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import com.saif.montres.entities.Genre;
 import com.saif.montres.entities.Montre;
 import com.saif.montres.repos.MontreRepository;
 
@@ -49,6 +50,42 @@ public class MontreServiceImpl implements  MontreService{
 	@Override
 	public Page<Montre> getAllMontresParPage(int page, int size) {
 		return montreRepository.findAll(PageRequest.of(page, size));
+	}
+
+	@Override
+	public List<Montre> findByNomMontre(String nom) {
+		return montreRepository.findByNomMontre(nom);
+	}
+
+	@Override
+	public List<Montre> findByNomMontreContains(String nom) {
+		return montreRepository.findByNomMontreContains(nom);
+	}
+
+	@Override
+	public List<Montre> findByNomPrix(String nom, Double prix) {
+		return montreRepository.findByNomPrix(nom, prix);	}
+
+	@Override
+	public List<Montre> findByGenre(Genre genre) {
+		return montreRepository.findByGenre(genre);
+	}
+
+	@Override
+	public List<Montre> findByGenreIdGen(Long id) {
+		return montreRepository.findByGenreIdGen(id);
+	}
+
+	@Override
+	public List<Montre> findByOrderByNomMontreAsc() {
+				return montreRepository.findByOrderByNomMontreAsc();
+
+	}
+
+	@Override
+	public List<Montre> trierMontresNomsPrix() {
+		// TODO Auto-generated method stub
+		return montreRepository.trierMontresNomsPrix();
 	}
 
 }

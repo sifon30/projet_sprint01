@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 
 @Entity
@@ -17,6 +18,9 @@ public class Montre {
 	private String nomMontre;
 	private Double prixMontre;
 	private Date dateCreation;
+	
+	@ManyToOne
+	private Genre genre;
 	
 	
 	public Montre() {
@@ -63,6 +67,16 @@ public class Montre {
 	public String toString() {
 		return "Montre [idMontre=" + idMontre + ", nomMontre=" + nomMontre + ", prixMontre=" + prixMontre
 				+ ", dateCreation=" + dateCreation + "]";
+	}
+
+
+	public Genre getGenre() {
+		return genre;
+	}
+
+
+	public void setGenre(Genre genre) {
+		this.genre = genre;
 	}
 	
 	

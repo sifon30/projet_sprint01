@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 
 import com.saif.montres.repos.MontreRepository;
 import com.saif.montres.service.MontreService;
+import com.saif.montres.entities.Genre;
 import com.saif.montres.entities.Montre;
 
 @SpringBootTest
@@ -74,5 +75,82 @@ class MontresApplicationTests {
 	System.out.println(m);
 	} */
 	}
+	
+	@Test
+	public void testFindMontreByNom()
+	{
+	List<Montre> mons = montreRepository.findByNomMontre("rolex");
+	for (Montre m : mons)
+	{
+	System.out.println(m);
+	}	}
+	
+	
+	
+	@Test
+	public void testFindMontreByNomContains()
+	{
+	List<Montre> mons = montreRepository.findByNomMontreContains("C");
+	for (Montre m : mons)
+	{
+	System.out.println(m);
+	}	}
+	
+	
+	@Test
+	public void testfindByNomPrix()
+	{
+	List<Montre> mons = montreRepository.findByNomPrix("Casio", 200.0);
+	for (Montre m : mons)
+	{
+	System.out.println(m);
+	}
+	}
+	
+	
+	@Test
+	public void testfindByGenre()
+	{
+	Genre gen = new Genre();
+	gen.setIdGen(1L);
+	List<Montre> mons = montreRepository.findByGenre(gen);
+	for (Montre m : mons)
+	{
+	System.out.println(m);
+	}
+	}
+	
+	@Test
+	public void findByGenreIdGen()
+	{
+	List<Montre> mons = montreRepository.findByGenreIdGen(1L);
+	for (Montre m : mons)
+	{
+	System.out.println(m);
+	}
+	 }
+	
+	
+	@Test
+	public void findByOrderByNomMontreAsc()
+	{
+	List<Montre> mons = 
+			montreRepository.findByOrderByNomMontreAsc();
+	for (Montre m : mons)
+	{
+	System.out.println(m);
+	}
+	}
+	
+	@Test
+	public void testTrierMontresNomsPrix()
+	{
+	List<Montre> mons = montreRepository.trierMontresNomsPrix();
+	for (Montre m : mons)
+	{
+	System.out.println(m);
+	}
+	}
+
 	
 }
