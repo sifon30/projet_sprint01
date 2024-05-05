@@ -24,6 +24,10 @@ public interface MontreService {
 	List<Montre> findByGenreIdGen(Long id);
 	List<Montre> findByOrderByNomMontreAsc();
 	List<Montre> trierMontresNomsPrix();
+	
+	List<Genre> getAllGenres();
+	
+	
 
 
 

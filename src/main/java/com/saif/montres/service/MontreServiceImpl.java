@@ -9,12 +9,18 @@ import org.springframework.stereotype.Service;
 
 import com.saif.montres.entities.Genre;
 import com.saif.montres.entities.Montre;
+import com.saif.montres.repos.GenreRepository;
 import com.saif.montres.repos.MontreRepository;
 
 @Service
 public class MontreServiceImpl implements  MontreService{
 	@Autowired
 	MontreRepository  montreRepository;
+	
+	@Autowired
+	GenreRepository  genreRepository ;
+
+
 	
 	@Override
 	public Montre saveMontre(Montre m) {
@@ -87,5 +93,10 @@ public class MontreServiceImpl implements  MontreService{
 		// TODO Auto-generated method stub
 		return montreRepository.trierMontresNomsPrix();
 	}
+	@Override
+	public List<Genre> getAllGenres() {
+	return genreRepository.findAll();
+	}
+
 
 }

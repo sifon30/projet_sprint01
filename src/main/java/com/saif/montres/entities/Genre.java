@@ -33,10 +33,7 @@ public class Genre {
 	
 	private List<Montre> montres;
 
-	
-	public Genre() {
-		super();
-	}
+
 	public Long getIdGen() {
 		return idGen;
 	}
